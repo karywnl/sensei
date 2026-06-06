@@ -7,7 +7,6 @@ const tabs = [
   {
     id: 'recommended',
     label: 'Global',
-    recommended: true,
     note: 'Installs the 6 slash commands globally — one-time setup. Then in any folder you want to learn DS in, run /project:sensei to turn it into a classroom.',
     lines: {
       bash: [
@@ -143,25 +142,6 @@ export default function Setup() {
               <span className="tdot y" />
               <span className="tdot g" />
               <span className="code-block-label">{os}</span>
-              {tab.recommended && (
-                <span
-                  style={{
-                    marginLeft: '10px',
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    letterSpacing: '0.05em',
-                    fontFamily: 'var(--mono)',
-                    color: 'var(--yellow)',
-                    background: 'var(--yellow-dim)',
-                    border: '1px solid var(--yellow-dim)',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  ★ Recommended
-                </span>
-              )}
               <div
                 style={{
                   marginLeft: 'auto',
