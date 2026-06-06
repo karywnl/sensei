@@ -94,16 +94,22 @@ The order never changes. Steps shrink or expand based on the data.
 
 ### Install (Per Project)
 
-```bash
-# Clone sensei
-git clone https://github.com/karywnl/sensei.git
+Downloads only `CLAUDE.md` and the 5 command files — nothing else from the repo.
 
+```bash
 # Go to your DS project
 cd your-ds-project/
 
-# Copy the setup files
-cp /path/to/sensei/CLAUDE.md .
-cp -r /path/to/sensei/.claude .
+# Download CLAUDE.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/CLAUDE.md -o CLAUDE.md
+
+# Download the 5 slash commands
+mkdir -p .claude/commands
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md      -o .claude/commands/start.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md       -o .claude/commands/next.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md -o .claude/commands/checkpoint.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md    -o .claude/commands/roadmap.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md      -o .claude/commands/stuck.md
 
 # Open Claude Code and type:
 /project:start
@@ -112,14 +118,16 @@ cp -r /path/to/sensei/.claude .
 ### Install (Global — All Projects)
 
 ```bash
-# Clone and enter sensei
-git clone https://github.com/karywnl/sensei.git
-cd sensei/
+# Download CLAUDE.md to global Claude config
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/CLAUDE.md -o ~/.claude/CLAUDE.md
 
-# Copy to global Claude config
-cp CLAUDE.md ~/.claude/CLAUDE.md
+# Download the 5 slash commands globally
 mkdir -p ~/.claude/commands
-cp .claude/commands/* ~/.claude/commands/
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md      -o ~/.claude/commands/start.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md       -o ~/.claude/commands/next.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md -o ~/.claude/commands/checkpoint.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md    -o ~/.claude/commands/roadmap.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md      -o ~/.claude/commands/stuck.md
 
 # Verify — open any project and run:
 /project:start
@@ -132,13 +140,13 @@ Every project now has a sensei.
 Already have your own `CLAUDE.md`? Just grab the commands:
 
 ```bash
-# Clone and enter sensei
-git clone https://github.com/karywnl/sensei.git
-cd sensei/
-
-# Copy commands into your project
+# Download commands into your project
 mkdir -p your-project/.claude/commands
-cp .claude/commands/* your-project/.claude/commands/
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md      -o your-project/.claude/commands/start.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md       -o your-project/.claude/commands/next.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md -o your-project/.claude/commands/checkpoint.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md    -o your-project/.claude/commands/roadmap.md
+curl -fsSL https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md      -o your-project/.claude/commands/stuck.md
 ```
 
 Then add the **Socratic Ladder** and **DS Roadmap** sections from sensei's `CLAUDE.md` into yours.
