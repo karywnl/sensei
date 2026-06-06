@@ -1,5 +1,11 @@
 const commands = [
   {
+    cmd: '/project:sensei',
+    title: 'Initialize a Classroom',
+    desc: 'Run this once in any folder to turn it into a Sensei classroom. Writes CLAUDE.md to the folder for future sessions and primes the current session immediately. Then run /project:start.',
+    tags: ['bootstrap', 'opt-in', 'one-shot setup'],
+  },
+  {
     cmd: '/project:start',
     title: 'Begin a Session',
     desc: 'The entry point for every session. Reads PROBLEM.md, scans for data, shows your 13-step roadmap, and resumes right where you left off if PROGRESS.md exists.',
@@ -36,7 +42,7 @@ export default function Commands() {
     <section className="section" id="commands">
       <div className="container">
         <span className="section-label">Slash Commands</span>
-        <h2 className="section-title">5 Commands. Everything You Need.</h2>
+        <h2 className="section-title">6 Commands. Everything You Need.</h2>
         <p className="section-sub">
           Type these in Claude Code. That's it — no configuration, no plugins. Just open your
           project and start learning.

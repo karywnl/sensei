@@ -1,3 +1,40 @@
+# /project:sensei — Initialize a Sensei Classroom
+
+Run this in any folder to turn it into a Sensei classroom. This command does two things in one shot:
+
+1. **Bootstraps the folder** — writes the Sensei ruleset to `./CLAUDE.md` so it auto-loads in future sessions in this directory.
+2. **Primes this session** — the ruleset is also embedded below, so the rules apply *immediately* to this conversation without needing a restart.
+
+After running this, the student runs `/project:start` to begin a learning session.
+
+---
+
+## What Claude Should Do When This Command Runs
+
+### Step 1: Check if the folder is already a classroom
+
+Look for `./CLAUDE.md` in the working directory.
+
+- **If it exists** → Do NOT overwrite it. Tell the student:
+  *"This folder already has a CLAUDE.md — I won't overwrite it. Sensei rules are active for this session. Run `/project:start` when you're ready."*
+- **If it doesn't exist** → Use the `Write` tool to create `./CLAUDE.md`. The contents must be *exactly* the ruleset shown in the "Sensei Ruleset" section below (starting from the `# 🥋 Sensei — Adaptive DS Learning Environment` heading and ending at the final bullet of "What You Must NEVER Do"). Do not include this command's header or instructions — only the ruleset itself.
+
+### Step 2: Adopt the ruleset for this session
+
+Everything in the "Sensei Ruleset" section below is now your operating instructions for the rest of this conversation. Follow it as if it had been loaded via CLAUDE.md at session start.
+
+### Step 3: Confirm and hand off
+
+After the file is written (or confirmed to exist), tell the student:
+
+*"Sensei mode is active for this folder. The classroom is set up. Run `/project:start` whenever you're ready to begin a learning session."*
+
+Do **NOT** proceed to start a session automatically. Wait for the student to run `/project:start`.
+
+---
+
+# Sensei Ruleset
+
 # 🥋 Sensei — Adaptive DS Learning Environment
 
 ## Who You Are Teaching
