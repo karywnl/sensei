@@ -6,47 +6,86 @@ const CMDS = `${BASE}/.claude/commands`
 const tabs = [
   {
     id: 'recommended',
-    label: 'Recommended',
-    note: 'Installs the 6 slash commands globally — one-time setup. Then in any folder you want to learn DS in, run /project:sensei to turn it into a classroom. Mac/Linux: run as-is. Windows: use Git Bash (not PowerShell).',
-    lines: [
-      { t: 'c', v: '# One-time: install the 6 slash commands globally' },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -p ' }, { c: 'cb-arg', v: '~/.claude/commands' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/sensei.md` },     { c: 'cb-cmd', v: ' -o ~/.claude/commands/sensei.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/start.md` },      { c: 'cb-cmd', v: ' -o ~/.claude/commands/start.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/next.md` },       { c: 'cb-cmd', v: ' -o ~/.claude/commands/next.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/checkpoint.md` }, { c: 'cb-cmd', v: ' -o ~/.claude/commands/checkpoint.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/roadmap.md` },    { c: 'cb-cmd', v: ' -o ~/.claude/commands/roadmap.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/stuck.md` },      { c: 'cb-cmd', v: ' -o ~/.claude/commands/stuck.md' }] },
-      { t: 'blank' },
-      { t: 'c', v: '# In any folder you want to learn DS in:' },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
-      { t: 'blank' },
-      { t: 'c', v: '# Open Claude Code and run:' },
-      { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:sensei' }, { c: 'cb-comment', v: '   # bootstrap this folder as a classroom' }] },
-      { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:start' }, { c: 'cb-comment', v: '    # begin your learning session' }] },
-    ],
+    label: 'Global',
+    recommended: true,
+    note: 'Installs the 6 slash commands globally — one-time setup. Then in any folder you want to learn DS in, run /project:sensei to turn it into a classroom.',
+    lines: {
+      bash: [
+        { t: 'c', v: '# One-time: install the 6 slash commands globally' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -p ' }, { c: 'cb-arg', v: '~/.claude/commands' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/sensei.md` },     { c: 'cb-cmd', v: ' -o ~/.claude/commands/sensei.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/start.md` },      { c: 'cb-cmd', v: ' -o ~/.claude/commands/start.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/next.md` },       { c: 'cb-cmd', v: ' -o ~/.claude/commands/next.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/checkpoint.md` }, { c: 'cb-cmd', v: ' -o ~/.claude/commands/checkpoint.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/roadmap.md` },    { c: 'cb-cmd', v: ' -o ~/.claude/commands/roadmap.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/stuck.md` },      { c: 'cb-cmd', v: ' -o ~/.claude/commands/stuck.md' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# In any folder you want to learn DS in:' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# Open Claude Code and run:' },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:sensei' }, { c: 'cb-comment', v: '   # bootstrap this folder as a classroom' }] },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:start' }, { c: 'cb-comment', v: '    # begin your learning session' }] },
+      ],
+      powershell: [
+        { t: 'c', v: '# One-time: install the 6 slash commands globally' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -Force ' }, { c: 'cb-arg', v: '$HOME/.claude/commands' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/sensei.md` },     { c: 'cb-cmd', v: ' -o $HOME/.claude/commands/sensei.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/start.md` },      { c: 'cb-cmd', v: ' -o $HOME/.claude/commands/start.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/next.md` },       { c: 'cb-cmd', v: ' -o $HOME/.claude/commands/next.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/checkpoint.md` }, { c: 'cb-cmd', v: ' -o $HOME/.claude/commands/checkpoint.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/roadmap.md` },    { c: 'cb-cmd', v: ' -o $HOME/.claude/commands/roadmap.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/stuck.md` },      { c: 'cb-cmd', v: ' -o $HOME/.claude/commands/stuck.md' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# In any folder you want to learn DS in:' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# Open Claude Code and run:' },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:sensei' }, { c: 'cb-comment', v: '   # bootstrap this folder as a classroom' }] },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:start' }, { c: 'cb-comment', v: '    # begin your learning session' }] },
+      ],
+    },
   },
   {
     id: 'per-project',
     label: 'Per Project',
-    note: 'Self-contained install — copies all 6 commands into a single project folder, nothing global. The /project:sensei bootstrap writes CLAUDE.md for you. Mac/Linux: run as-is. Windows: use Git Bash.',
-    lines: [
-      { t: 'c', v: '# Go to your DS project' },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
-      { t: 'blank' },
-      { t: 'c', v: '# Download all 6 commands into the project' },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -p ' }, { c: 'cb-arg', v: '.claude/commands' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/sensei.md` },     { c: 'cb-cmd', v: ' -o .claude/commands/sensei.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/start.md` },      { c: 'cb-cmd', v: ' -o .claude/commands/start.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/next.md` },       { c: 'cb-cmd', v: ' -o .claude/commands/next.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/checkpoint.md` }, { c: 'cb-cmd', v: ' -o .claude/commands/checkpoint.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/roadmap.md` },    { c: 'cb-cmd', v: ' -o .claude/commands/roadmap.md' }] },
-      { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/stuck.md` },      { c: 'cb-cmd', v: ' -o .claude/commands/stuck.md' }] },
-      { t: 'blank' },
-      { t: 'c', v: '# Open Claude Code and run:' },
-      { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:sensei' }, { c: 'cb-comment', v: '   # bootstrap this folder as a classroom' }] },
-      { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:start' }, { c: 'cb-comment', v: '    # begin your learning session' }] },
-    ],
+    note: 'Self-contained install — copies all 6 commands into a single project folder, nothing global. The /project:sensei bootstrap writes CLAUDE.md for you.',
+    lines: {
+      bash: [
+        { t: 'c', v: '# Go to your DS project' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# Download all 6 commands into the project' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -p ' }, { c: 'cb-arg', v: '.claude/commands' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/sensei.md` },     { c: 'cb-cmd', v: ' -o .claude/commands/sensei.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/start.md` },      { c: 'cb-cmd', v: ' -o .claude/commands/start.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/next.md` },       { c: 'cb-cmd', v: ' -o .claude/commands/next.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/checkpoint.md` }, { c: 'cb-cmd', v: ' -o .claude/commands/checkpoint.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/roadmap.md` },    { c: 'cb-cmd', v: ' -o .claude/commands/roadmap.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/stuck.md` },      { c: 'cb-cmd', v: ' -o .claude/commands/stuck.md' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# Open Claude Code and run:' },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:sensei' }, { c: 'cb-comment', v: '   # bootstrap this folder as a classroom' }] },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:start' }, { c: 'cb-comment', v: '    # begin your learning session' }] },
+      ],
+      powershell: [
+        { t: 'c', v: '# Go to your DS project' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# Download all 6 commands into the project' },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -Force ' }, { c: 'cb-arg', v: '.claude/commands' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/sensei.md` },     { c: 'cb-cmd', v: ' -o .claude/commands/sensei.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/start.md` },      { c: 'cb-cmd', v: ' -o .claude/commands/start.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/next.md` },       { c: 'cb-cmd', v: ' -o .claude/commands/next.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/checkpoint.md` }, { c: 'cb-cmd', v: ' -o .claude/commands/checkpoint.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/roadmap.md` },    { c: 'cb-cmd', v: ' -o .claude/commands/roadmap.md' }] },
+        { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl.exe -fsSL ' }, { c: 'cb-arg', v: `${CMDS}/stuck.md` },      { c: 'cb-cmd', v: ' -o .claude/commands/stuck.md' }] },
+        { t: 'blank' },
+        { t: 'c', v: '# Open Claude Code and run:' },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:sensei' }, { c: 'cb-comment', v: '   # bootstrap this folder as a classroom' }] },
+        { t: 'mixed', parts: [{ c: 'cb-kw', v: '/project:start' }, { c: 'cb-comment', v: '    # begin your learning session' }] },
+      ],
+    },
   },
 ]
 
@@ -66,8 +105,14 @@ function Line({ line }) {
   return null
 }
 
+const osOptions = [
+  { id: 'bash', label: 'bash' },
+  { id: 'powershell', label: 'powershell' },
+]
+
 export default function Setup() {
   const [active, setActive] = useState('recommended')
+  const [os, setOs] = useState('bash')
   const tab = tabs.find((t) => t.id === active)
 
   return (
@@ -97,10 +142,61 @@ export default function Setup() {
               <span className="tdot r" />
               <span className="tdot y" />
               <span className="tdot g" />
-              <span className="code-block-label">bash</span>
+              <span className="code-block-label">{os}</span>
+              {tab.recommended && (
+                <span
+                  style={{
+                    marginLeft: '10px',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    letterSpacing: '0.05em',
+                    fontFamily: 'var(--mono)',
+                    color: 'var(--yellow)',
+                    background: 'var(--yellow-dim)',
+                    border: '1px solid var(--yellow-dim)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  ★ Recommended
+                </span>
+              )}
+              <div
+                style={{
+                  marginLeft: 'auto',
+                  display: 'flex',
+                  gap: '3px',
+                  background: 'var(--bg-surface)',
+                  padding: '3px',
+                  borderRadius: '6px',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                {osOptions.map((o) => (
+                  <button
+                    key={o.id}
+                    onClick={() => setOs(o.id)}
+                    style={{
+                      padding: '4px 11px',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      fontFamily: 'var(--mono)',
+                      cursor: 'pointer',
+                      border: 'none',
+                      background: os === o.id ? 'var(--bg-highlight)' : 'transparent',
+                      color: os === o.id ? 'var(--text-primary)' : 'var(--text-muted)',
+                      transition: 'all var(--transition)',
+                    }}
+                  >
+                    {o.label}
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="code-block-body">
-              {tab.lines.map((line, i) => (
+              {tab.lines[os].map((line, i) => (
                 <Line key={i} line={line} />
               ))}
             </div>
