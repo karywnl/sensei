@@ -10,6 +10,8 @@ A Claude Code setup that turns your IDE into a Data Science dojo. 13 steps. One 
 
 ## Quick Install
 
+> **Mac/Linux:** run as-is. **Windows:** use Git Bash, not PowerShell.
+
 **Per project:**
 ```bash
 cd your-ds-project/

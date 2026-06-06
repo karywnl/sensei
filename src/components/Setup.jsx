@@ -7,7 +7,7 @@ const tabs = [
   {
     id: 'per-project',
     label: 'Per Project',
-    note: 'Downloads only CLAUDE.md and the 5 command files — nothing else from the repo.',
+    note: 'Downloads only CLAUDE.md and the 5 command files. Mac/Linux: run as-is. Windows: use Git Bash (not PowerShell).',
     lines: [
       { t: 'c', v: '# Go to your DS project' },
       { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'cd ' }, { c: 'cb-arg', v: 'your-ds-project/' }] },
@@ -30,7 +30,7 @@ const tabs = [
   {
     id: 'global',
     label: 'Global',
-    note: 'Every project on your machine gets a sensei. Recommended if you work on DS regularly.',
+    note: 'Installs to ~/.claude/ — on Mac that\'s /Users/you/.claude/, on Windows it\'s C:\\Users\\you\\.claude\\. Run in Git Bash on Windows.',
     lines: [
       { t: 'c', v: '# Download CLAUDE.md to global Claude config' },
       { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'curl -fsSL ' }, { c: 'cb-arg', v: `${BASE}/CLAUDE.md` }, { c: 'cb-cmd', v: ' -o ~/.claude/CLAUDE.md' }] },
@@ -50,7 +50,7 @@ const tabs = [
   {
     id: 'commands-only',
     label: 'Commands Only',
-    note: 'Already have your own CLAUDE.md? Just grab the 5 command files, then add the Socratic Ladder and DS Roadmap sections from sensei\'s CLAUDE.md.',
+    note: 'Already have your own CLAUDE.md? Grab the 5 command files and merge the Socratic Ladder + DS Roadmap sections into yours. Mac/Linux/Git Bash on Windows.',
     lines: [
       { t: 'c', v: '# Download commands into your project' },
       { t: 'mixed', parts: [{ c: 'cb-cmd', v: 'mkdir -p ' }, { c: 'cb-arg', v: 'your-project/.claude/commands' }] },
