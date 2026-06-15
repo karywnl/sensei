@@ -2,16 +2,697 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A Claude Code setup that turns your IDE into a Data Science dojo. 13 steps. One at a time." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
     <title>sensei</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- ─── Navbar ─────────────────────────────────────────── -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="nav-brand">
+          <span class="nav-brand-icon">🥋</span>
+          <span class="nav-brand-name">sensei</span>
+          <span class="nav-brand-sep">/ understand first. code second.</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#commands">Commands</a></li>
+          <li><a href="#setup">Setup</a></li>
+        </ul>
+
+        <a
+          href="https://github.com/karywnl/sensei"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-ghost nav-cta"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ─── Hero ─────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Claude Code · Data Science
+            </div>
+
+            <h1 class="hero-headline">
+              understand first.<br />
+              <span class="hero-headline-accent">code second.</span>
+            </h1>
+
+            <p class="hero-desc">
+              A Claude Code setup that turns your IDE into a Data Science dojo.
+              13 steps. One at a time. The code is not the lesson —
+              <em>the thinking is.</em>
+            </p>
+
+            <div class="hero-actions">
+              <a
+                href="https://github.com/karywnl/sensei"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+                View on GitHub
+              </a>
+              <a href="#features" class="btn btn-ghost">
+                See how it works ↓
+              </a>
+            </div>
+          </div>
+
+          <div class="terminal-wrap">
+            <div class="terminal">
+              <div class="terminal-header">
+                <span class="tdot r"></span>
+                <span class="tdot y"></span>
+                <span class="tdot g"></span>
+                <span class="terminal-title">claude-code — loan-eligibility/</span>
+              </div>
+              <div class="terminal-body">
+                <span class="t-line">
+                  <span class="t-prompt">❯ </span>
+                  <span class="t-cmd">/project:start</span>
+                </span>
+                <span class="t-blank"></span>
+                <span class="t-line t-dim">Scanning project directory...</span>
+                <span class="t-line">
+                  <span class="t-ind"></span>
+                  <span class="t-ok">✓ </span>
+                  <span class="t-white">train.csv </span>
+                  <span class="t-dim">— 614 rows × 13 cols</span>
+                </span>
+                <span class="t-line">
+                  <span class="t-ind"></span>
+                  <span class="t-ok">✓ </span>
+                  <span class="t-white">PROBLEM.md </span>
+                  <span class="t-dim">found</span>
+                </span>
+                <span class="t-blank"></span>
+                <span class="t-line t-dim">Reading problem statement...</span>
+                <span class="t-line">
+                  <span class="t-ind"></span>
+                  <span class="t-info">Business: </span>
+                  <span class="t-white">Loan eligibility prediction</span>
+                </span>
+                <span class="t-line">
+                  <span class="t-ind"></span>
+                  <span class="t-info">Target:   </span>
+                  <span class="t-white">Loan_Status </span>
+                  <span class="t-dim">(binary)</span>
+                </span>
+                <span class="t-line">
+                  <span class="t-ind"></span>
+                  <span class="t-info">Metric:   </span>
+                  <span class="t-white">Accuracy</span>
+                </span>
+                <span class="t-blank"></span>
+                <span class="t-line t-hr">──────────────────────────────</span>
+                <span class="t-blank"></span>
+                <span class="t-line t-white">Before we look at any code —</span>
+                <span class="t-blank"></span>
+                <span class="t-line t-em">What type of ML problem is this?</span>
+                <span class="t-line t-em">Classification, regression, or</span>
+                <span class="t-line t-em">something else? Take a guess. 🤔</span>
+                <span class="t-blank"></span>
+                <span class="t-prompt">❯ </span>
+                <span class="t-cursor"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Ladder ───────────────────────────────────────── -->
+      <section class="ladder section" id="philosophy">
+        <div class="container">
+          <div class="ladder-header">
+            <span class="section-label">The Philosophy</span>
+            <h2 class="section-title">The Socratic Ladder</h2>
+            <p class="section-sub">
+              Claude never jumps to the answer. It climbs — asking, hinting, scaffolding,
+              and only revealing as a last resort. The struggle is the lesson.
+            </p>
+          </div>
+
+          <div class="ladder-grid">
+            <div class="ladder-step" data-lv="1">
+              <div class="step-level">Level 1</div>
+              <span class="step-icon">💬</span>
+              <div class="step-name">ASK</div>
+              <span class="step-rule">Question first. Always.</span>
+              <p class="step-desc">"What do you think we should do here? Why?" — Claude never opens with code. It opens with curiosity.</p>
+            </div>
+            <div class="ladder-step" data-lv="2">
+              <div class="step-level">Level 2</div>
+              <span class="step-icon">💡</span>
+              <div class="step-name">NUDGE</div>
+              <span class="step-rule">Hint. No code yet.</span>
+              <p class="step-desc">A conceptual pointer toward the answer. Analogies, mental models, things to think about — but still no code.</p>
+            </div>
+            <div class="ladder-step" data-lv="3">
+              <div class="step-level">Level 3</div>
+              <span class="step-icon">🧩</span>
+              <div class="step-name">SKELETON</div>
+              <span class="step-rule">Fill the blanks.</span>
+              <p class="step-desc">Partial code with gaps for you to complete. The structure is there. You supply the thinking.</p>
+            </div>
+            <div class="ladder-step" data-lv="4">
+              <div class="step-level">Level 4</div>
+              <span class="step-icon">✨</span>
+              <div class="step-name">REVEAL</div>
+              <span class="step-rule">Last resort. Every line explained.</span>
+              <p class="step-desc">Full code with a line-by-line breakdown. Only reached after genuinely working through every other level.</p>
+            </div>
+          </div>
+
+          <div class="ladder-note">
+            <div class="ladder-note-inner">
+              Never skip to Reveal. Never.
+              <span>If you can't explain it, you haven't learned it yet.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Features ─────────────────────────────────────── -->
+      <section class="section" id="features">
+        <div class="container">
+          <span class="section-label">What You Get</span>
+          <h2 class="section-title">Everything a self-taught DS student needs.</h2>
+          <p class="section-sub">
+            Not an autocomplete tool. Not a shortcut. A learning environment built to make you
+            actually understand what you're doing — not just get outputs.
+          </p>
+
+          <div class="features-grid">
+            <div class="feat-card">
+              <span class="feat-icon">🗺️</span>
+              <div class="feat-title">13-Step Roadmap</div>
+              <p class="feat-desc">Every dataset follows the same path: Understand → Explore → Prepare → Model → Improve. The order never changes.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">🧠</span>
+              <div class="feat-title">Socratic Teaching</div>
+              <p class="feat-desc">Asks before it tells. Hints before it solves. You never run code you can't explain back.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">💾</span>
+              <div class="feat-title">Session Persistence</div>
+              <p class="feat-desc">Auto-saves to PROGRESS.md after every step. Close your laptop, come back tomorrow, pick up exactly where you left off.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">📄</span>
+              <div class="feat-title">Problem Context</div>
+              <p class="feat-desc">Drop a PROBLEM.md with business context and Sensei teaches within that frame — data dictionary, metric, everything.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">🔍</span>
+              <div class="feat-title">Auto Domain Detection</div>
+              <p class="feat-desc">Reads your data, detects fintech / health / gaming / ecommerce, and adapts every example and analogy accordingly.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">🪜</span>
+              <div class="feat-title">4-Level Hint Ladder</div>
+              <p class="feat-desc">Stuck? Nudge → analogy → skeleton → reveal. Never jumps straight to the answer — makes you work for it.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">📓</span>
+              <div class="feat-title">Cell Discipline</div>
+              <p class="feat-desc">Every notebook cell needs a WHAT and WHY comment. Builds intentional habits instead of running cells blindly.</p>
+            </div>
+            <div class="feat-card">
+              <span class="feat-icon">✅</span>
+              <div class="feat-title">Gate Checks</div>
+              <p class="feat-desc">Can't move to the next step until you prove you understood the current one. Learning over output, every time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Roadmap ──────────────────────────────────────── -->
+      <section class="roadmap section" id="roadmap">
+        <div class="container">
+          <div class="roadmap-header">
+            <span class="section-label">The Roadmap</span>
+            <h2 class="section-title">13 Steps. One at a Time.</h2>
+            <p class="section-sub">
+              The order never changes. Steps shrink or expand based on your data — but the
+              sequence is fixed, because the thinking process behind DS is universal.
+            </p>
+          </div>
+
+          <div class="phases">
+            <div class="phase-card" data-p="1">
+              <div class="phase-head">
+                <span class="phase-num">Phase 1</span>
+                <span class="phase-name">UNDERSTAND</span>
+              </div>
+              <ul class="phase-steps">
+                <li class="phase-step">
+                  <span class="ps-num">01</span>
+                  <div>
+                    <div class="ps-name">Dataset Orientation</div>
+                    <div class="ps-desc">What is this data? What's the business question?</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">02</span>
+                  <div>
+                    <div class="ps-name">Problem Identification</div>
+                    <div class="ps-desc">Classification? Regression? What's the target?</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="phase-card" data-p="2">
+              <div class="phase-head">
+                <span class="phase-num">Phase 2</span>
+                <span class="phase-name">EXPLORE</span>
+              </div>
+              <ul class="phase-steps">
+                <li class="phase-step">
+                  <span class="ps-num">03</span>
+                  <div>
+                    <div class="ps-name">Initial Inspection</div>
+                    <div class="ps-desc">Shape, dtypes, sample rows, column meanings</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">04</span>
+                  <div>
+                    <div class="ps-name">Data Audit</div>
+                    <div class="ps-desc">Nulls, duplicates, quality issues</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">05</span>
+                  <div>
+                    <div class="ps-name">EDA</div>
+                    <div class="ps-desc">Distributions, relationships, outliers</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="phase-card" data-p="3">
+              <div class="phase-head">
+                <span class="phase-num">Phase 3</span>
+                <span class="phase-name">PREPARE</span>
+              </div>
+              <ul class="phase-steps">
+                <li class="phase-step">
+                  <span class="ps-num">06</span>
+                  <div>
+                    <div class="ps-name">Train-Test Split</div>
+                    <div class="ps-desc">Always before any transformation</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">07</span>
+                  <div>
+                    <div class="ps-name">Feature Engineering</div>
+                    <div class="ps-desc">New features, transformations, domain signals</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">08</span>
+                  <div>
+                    <div class="ps-name">Preprocessing Pipeline</div>
+                    <div class="ps-desc">Imputation, encoding, scaling — fit on train only</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="phase-card" data-p="4">
+              <div class="phase-head">
+                <span class="phase-num">Phase 4</span>
+                <span class="phase-name">MODEL</span>
+              </div>
+              <ul class="phase-steps">
+                <li class="phase-step">
+                  <span class="ps-num">09</span>
+                  <div>
+                    <div class="ps-name">Baseline Model</div>
+                    <div class="ps-desc">Simplest model first. Establish a benchmark.</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">10</span>
+                  <div>
+                    <div class="ps-name">Model Selection</div>
+                    <div class="ps-desc">Try 2–3 models. Compare with cross-validation.</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">11</span>
+                  <div>
+                    <div class="ps-name">Evaluation</div>
+                    <div class="ps-desc">Right metrics for the right problem.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="phase-card" data-p="5">
+              <div class="phase-head">
+                <span class="phase-num">Phase 5</span>
+                <span class="phase-name">IMPROVE</span>
+              </div>
+              <ul class="phase-steps">
+                <li class="phase-step">
+                  <span class="ps-num">12</span>
+                  <div>
+                    <div class="ps-name">Hyperparameter Tuning</div>
+                    <div class="ps-desc">Grid or random search. Understand what changes.</div>
+                  </div>
+                </li>
+                <li class="phase-step">
+                  <span class="ps-num">13</span>
+                  <div>
+                    <div class="ps-name">Final Insights</div>
+                    <div class="ps-desc">Feature importance, business interpretation.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Commands ─────────────────────────────────────── -->
+      <section class="section" id="commands">
+        <div class="container">
+          <span class="section-label">Slash Commands</span>
+          <h2 class="section-title">6 Commands. Everything You Need.</h2>
+          <p class="section-sub">
+            Type these in Claude Code. That's it — no configuration, no plugins. Just open your
+            project and start learning.
+          </p>
+
+          <div class="commands-list">
+            <div class="cmd-card">
+              <div class="cmd-badge">/project:sensei</div>
+              <div>
+                <div class="cmd-title">Initialize a Classroom</div>
+                <p class="cmd-desc">Run this once in any folder to turn it into a Sensei classroom. Writes CLAUDE.md to the folder for future sessions and primes the current session immediately. Then run /project:start.</p>
+                <div class="cmd-tags">
+                  <span class="cmd-tag">bootstrap</span>
+                  <span class="cmd-tag">opt-in</span>
+                  <span class="cmd-tag">one-shot setup</span>
+                </div>
+              </div>
+            </div>
+            <div class="cmd-card">
+              <div class="cmd-badge">/project:start</div>
+              <div>
+                <div class="cmd-title">Begin a Session</div>
+                <p class="cmd-desc">The entry point for every session. Reads PROBLEM.md, scans for data, shows your 13-step roadmap, and resumes right where you left off if PROGRESS.md exists.</p>
+                <div class="cmd-tags">
+                  <span class="cmd-tag">session start</span>
+                  <span class="cmd-tag">resume</span>
+                  <span class="cmd-tag">roadmap</span>
+                  <span class="cmd-tag">progress load</span>
+                </div>
+              </div>
+            </div>
+            <div class="cmd-card">
+              <div class="cmd-badge">/project:next</div>
+              <div>
+                <div class="cmd-title">Move to the Next Step</div>
+                <p class="cmd-desc">Gate-checks your understanding with one targeted question. If you answer well, moves forward. Auto-saves PROGRESS.md silently in the background every time.</p>
+                <div class="cmd-tags">
+                  <span class="cmd-tag">gate check</span>
+                  <span class="cmd-tag">auto-save</span>
+                  <span class="cmd-tag">progress</span>
+                </div>
+              </div>
+            </div>
+            <div class="cmd-card">
+              <div class="cmd-badge">/project:checkpoint</div>
+              <div>
+                <div class="cmd-title">Test My Understanding</div>
+                <p class="cmd-desc">3 targeted questions for your current step — one at a time. Why / What-if / When-not-to. A quick audit to make sure you own the concept, not just the output.</p>
+                <div class="cmd-tags">
+                  <span class="cmd-tag">quiz</span>
+                  <span class="cmd-tag">comprehension</span>
+                  <span class="cmd-tag">why / what-if / when-not-to</span>
+                </div>
+              </div>
+            </div>
+            <div class="cmd-card">
+              <div class="cmd-badge">/project:roadmap</div>
+              <div>
+                <div class="cmd-title">Show My Progress</div>
+                <p class="cmd-desc">Visual progress tracker showing every step's status. ✅ done, 🔄 in progress, ⬜ not started. Shows exactly where you are and what comes next.</p>
+                <div class="cmd-tags">
+                  <span class="cmd-tag">progress view</span>
+                  <span class="cmd-tag">status tracker</span>
+                  <span class="cmd-tag">visual</span>
+                </div>
+              </div>
+            </div>
+            <div class="cmd-card">
+              <div class="cmd-badge">/project:stuck</div>
+              <div>
+                <div class="cmd-title">I'm Stuck</div>
+                <p class="cmd-desc">Activates the 4-level hint ladder. Nudge → analogy → skeleton → reveal. Never jumps straight to the answer. Ends by asking you to explain what you just learned.</p>
+                <div class="cmd-tags">
+                  <span class="cmd-tag">hint ladder</span>
+                  <span class="cmd-tag">nudge</span>
+                  <span class="cmd-tag">skeleton</span>
+                  <span class="cmd-tag">reveal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Domains ──────────────────────────────────────── -->
+      <section class="domains section" id="domains">
+        <div class="container">
+          <span class="section-label">Domain Adaptation</span>
+          <h2 class="section-title">Adapts to Any Dataset.</h2>
+          <p class="section-sub">
+            Sensei reads your column names and values, detects the domain, and tailors every
+            example and analogy to match. No generic explanations. No forced analogies.
+          </p>
+
+          <div class="domains-grid">
+            <div class="domain-card">
+              <span class="domain-icon">💰</span>
+              <div class="domain-name">Fintech</div>
+              <div class="domain-type">Finance & Banking</div>
+              <ul class="domain-list">
+                <li>Fraud detection</li>
+                <li>Credit risk scoring</li>
+                <li>Loan eligibility</li>
+                <li>Transaction anomalies</li>
+              </ul>
+            </div>
+            <div class="domain-card">
+              <span class="domain-icon">🏥</span>
+              <div class="domain-name">Healthcare</div>
+              <div class="domain-type">Clinical & Medical</div>
+              <ul class="domain-list">
+                <li>Disease prediction</li>
+                <li>Readmission risk</li>
+                <li>Lab value analysis</li>
+                <li>Diagnosis classification</li>
+              </ul>
+            </div>
+            <div class="domain-card">
+              <span class="domain-icon">🛒</span>
+              <div class="domain-name">Ecommerce</div>
+              <div class="domain-type">Retail & Commerce</div>
+              <ul class="domain-list">
+                <li>Customer churn</li>
+                <li>Recommendation systems</li>
+                <li>Customer LTV</li>
+                <li>Cart abandonment</li>
+              </ul>
+            </div>
+            <div class="domain-card">
+              <span class="domain-icon">🎮</span>
+              <div class="domain-name">Gaming</div>
+              <div class="domain-type">Games & Apps</div>
+              <ul class="domain-list">
+                <li>Player churn</li>
+                <li>Whale detection</li>
+                <li>Session analysis</li>
+                <li>Level progression</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Setup ────────────────────────────────────────── -->
+      <section class="section" id="setup">
+        <div class="container">
+          <span class="section-label">Installation</span>
+          <h2 class="section-title">Two Ways to Install.</h2>
+          <p class="section-sub">
+            Pick whichever fits your workflow. Both take under two minutes.
+          </p>
+
+          <div class="setup-body">
+            <div class="setup-tabs">
+              <button class="setup-tab active" data-tab="recommended">Global</button>
+              <button class="setup-tab" data-tab="per-project">Per Project</button>
+            </div>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="tdot r"></span>
+                <span class="tdot y"></span>
+                <span class="tdot g"></span>
+                <span class="code-block-label">bash</span>
+                <div class="os-toggle">
+                  <button class="os-btn active" data-os="bash">bash</button>
+                  <button class="os-btn" data-os="powershell">powershell</button>
+                </div>
+              </div>
+              <div class="code-block-body">
+                <!-- Global · bash -->
+                <div class="code-content" data-tab="recommended" data-os="bash">
+                  <div><span class="cb-comment"># One-time: install the 6 slash commands globally</span></div>
+                  <div><span class="cb-cmd">mkdir -p </span><span class="cb-arg">~/.claude/commands</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/sensei.md</span><span class="cb-cmd"> -o ~/.claude/commands/sensei.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md</span><span class="cb-cmd"> -o ~/.claude/commands/start.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md</span><span class="cb-cmd"> -o ~/.claude/commands/next.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md</span><span class="cb-cmd"> -o ~/.claude/commands/checkpoint.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md</span><span class="cb-cmd"> -o ~/.claude/commands/roadmap.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md</span><span class="cb-cmd"> -o ~/.claude/commands/stuck.md</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># In any folder you want to learn DS in:</span></div>
+                  <div><span class="cb-cmd">cd </span><span class="cb-arg">your-ds-project/</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># Open Claude Code and run:</span></div>
+                  <div><span class="cb-kw">/project:sensei</span><span class="cb-comment">   # bootstrap this folder as a classroom</span></div>
+                  <div><span class="cb-kw">/project:start</span><span class="cb-comment">    # begin your learning session</span></div>
+                </div>
+                <!-- Global · powershell -->
+                <div class="code-content" data-tab="recommended" data-os="powershell" hidden>
+                  <div><span class="cb-comment"># One-time: install the 6 slash commands globally</span></div>
+                  <div><span class="cb-cmd">mkdir -Force </span><span class="cb-arg">$HOME/.claude/commands</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/sensei.md</span><span class="cb-cmd"> -o $HOME/.claude/commands/sensei.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md</span><span class="cb-cmd"> -o $HOME/.claude/commands/start.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md</span><span class="cb-cmd"> -o $HOME/.claude/commands/next.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md</span><span class="cb-cmd"> -o $HOME/.claude/commands/checkpoint.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md</span><span class="cb-cmd"> -o $HOME/.claude/commands/roadmap.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md</span><span class="cb-cmd"> -o $HOME/.claude/commands/stuck.md</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># In any folder you want to learn DS in:</span></div>
+                  <div><span class="cb-cmd">cd </span><span class="cb-arg">your-ds-project/</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># Open Claude Code and run:</span></div>
+                  <div><span class="cb-kw">/project:sensei</span><span class="cb-comment">   # bootstrap this folder as a classroom</span></div>
+                  <div><span class="cb-kw">/project:start</span><span class="cb-comment">    # begin your learning session</span></div>
+                </div>
+                <!-- Per Project · bash -->
+                <div class="code-content" data-tab="per-project" data-os="bash" hidden>
+                  <div><span class="cb-comment"># Go to your DS project</span></div>
+                  <div><span class="cb-cmd">cd </span><span class="cb-arg">your-ds-project/</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># Download all 6 commands into the project</span></div>
+                  <div><span class="cb-cmd">mkdir -p </span><span class="cb-arg">.claude/commands</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/sensei.md</span><span class="cb-cmd"> -o .claude/commands/sensei.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md</span><span class="cb-cmd"> -o .claude/commands/start.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md</span><span class="cb-cmd"> -o .claude/commands/next.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md</span><span class="cb-cmd"> -o .claude/commands/checkpoint.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md</span><span class="cb-cmd"> -o .claude/commands/roadmap.md</span></div>
+                  <div><span class="cb-cmd">curl -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md</span><span class="cb-cmd"> -o .claude/commands/stuck.md</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># Open Claude Code and run:</span></div>
+                  <div><span class="cb-kw">/project:sensei</span><span class="cb-comment">   # bootstrap this folder as a classroom</span></div>
+                  <div><span class="cb-kw">/project:start</span><span class="cb-comment">    # begin your learning session</span></div>
+                </div>
+                <!-- Per Project · powershell -->
+                <div class="code-content" data-tab="per-project" data-os="powershell" hidden>
+                  <div><span class="cb-comment"># Go to your DS project</span></div>
+                  <div><span class="cb-cmd">cd </span><span class="cb-arg">your-ds-project/</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># Download all 6 commands into the project</span></div>
+                  <div><span class="cb-cmd">mkdir -Force </span><span class="cb-arg">.claude/commands</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/sensei.md</span><span class="cb-cmd"> -o .claude/commands/sensei.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/start.md</span><span class="cb-cmd"> -o .claude/commands/start.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/next.md</span><span class="cb-cmd"> -o .claude/commands/next.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/checkpoint.md</span><span class="cb-cmd"> -o .claude/commands/checkpoint.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/roadmap.md</span><span class="cb-cmd"> -o .claude/commands/roadmap.md</span></div>
+                  <div><span class="cb-cmd">curl.exe -fsSL </span><span class="cb-arg">https://raw.githubusercontent.com/karywnl/sensei/main/.claude/commands/stuck.md</span><span class="cb-cmd"> -o .claude/commands/stuck.md</span></div>
+                  <div class="cb-blank"></div>
+                  <div><span class="cb-comment"># Open Claude Code and run:</span></div>
+                  <div><span class="cb-kw">/project:sensei</span><span class="cb-comment">   # bootstrap this folder as a classroom</span></div>
+                  <div><span class="cb-kw">/project:start</span><span class="cb-comment">    # begin your learning session</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="setup-note">
+              <span>💡</span>
+              <span class="setup-note-text" data-tab="recommended">Installs the 6 slash commands globally — one-time setup. Then in any folder you want to learn DS in, run /project:sensei to turn it into a classroom.</span>
+              <span class="setup-note-text" data-tab="per-project" hidden>Self-contained install — copies all 6 commands into a single project folder, nothing global. The /project:sensei bootstrap writes CLAUDE.md for you.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ─── Footer ─────────────────────────────────────────── -->
+    <footer class="footer">
+      <div class="container">
+        <div>
+          <a href="#" class="footer-brand-name">
+            <span>🥋</span>
+            <span>sensei</span>
+          </a>
+          <div class="footer-tagline">understand first. code second.</div>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#commands">Commands</a></li>
+          <li><a href="#setup">Setup</a></li>
+          <li>
+            <a href="https://github.com/karywnl/sensei" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener noreferrer">
+              Claude Code ↗
+            </a>
+          </li>
+        </ul>
+
+        <div class="footer-copy">
+          MIT License<br />
+          Built for Claude Code by Anthropic
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
