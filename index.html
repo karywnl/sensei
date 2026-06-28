@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A Claude Code setup that turns your IDE into a Data Science dojo. 13 steps. One at a time." />
+    <meta name="description" content="A Claude Code setup that turns your IDE into a Data Science dojo. 12 steps. One at a time." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -59,7 +59,7 @@
 
             <p class="hero-desc">
               A Claude Code setup that turns your IDE into a Data Science dojo.
-              13 steps. One at a time. The code is not the lesson —
+              12 steps. One at a time. The code is not the lesson —
               <em>the thinking is.</em>
             </p>
 
@@ -233,8 +233,8 @@
             </div>
             <div class="feat-card">
               <span class="feat-icon">🪜</span>
-              <div class="feat-title">4-Level Hint Ladder</div>
-              <p class="feat-desc">Stuck? Nudge → analogy → skeleton → reveal. Never jumps straight to the answer — makes you work for it.</p>
+              <div class="feat-title">The Socratic Ladder</div>
+              <p class="feat-desc">Stuck? Ask → nudge → skeleton → reveal. Never jumps straight to the answer — makes you work for it.</p>
             </div>
             <div class="feat-card">
               <span class="feat-icon">📓</span>
@@ -255,7 +255,7 @@
         <div class="container">
           <div class="roadmap-header">
             <span class="section-label">The Roadmap</span>
-            <h2 class="section-title">13 Steps. One at a Time.</h2>
+            <h2 class="section-title">12 Steps. One at a Time.</h2>
             <p class="section-sub">
               The order never changes. Steps shrink or expand based on your data — but the
               sequence is fixed, because the thinking process behind DS is universal.
@@ -294,19 +294,12 @@
                 <li class="phase-step">
                   <span class="ps-num">03</span>
                   <div>
-                    <div class="ps-name">Initial Inspection</div>
-                    <div class="ps-desc">Shape, dtypes, sample rows, column meanings</div>
+                    <div class="ps-name">Data Profiling</div>
+                    <div class="ps-desc">Structure (shape, dtypes, columns) + quality (nulls, duplicates, issues)</div>
                   </div>
                 </li>
                 <li class="phase-step">
                   <span class="ps-num">04</span>
-                  <div>
-                    <div class="ps-name">Data Audit</div>
-                    <div class="ps-desc">Nulls, duplicates, quality issues</div>
-                  </div>
-                </li>
-                <li class="phase-step">
-                  <span class="ps-num">05</span>
                   <div>
                     <div class="ps-name">EDA</div>
                     <div class="ps-desc">Distributions, relationships, outliers</div>
@@ -321,21 +314,21 @@
               </div>
               <ul class="phase-steps">
                 <li class="phase-step">
-                  <span class="ps-num">06</span>
+                  <span class="ps-num">05</span>
                   <div>
                     <div class="ps-name">Train-Test Split</div>
                     <div class="ps-desc">Always before any transformation</div>
                   </div>
                 </li>
                 <li class="phase-step">
-                  <span class="ps-num">07</span>
+                  <span class="ps-num">06</span>
                   <div>
                     <div class="ps-name">Feature Engineering</div>
                     <div class="ps-desc">New features, transformations, domain signals</div>
                   </div>
                 </li>
                 <li class="phase-step">
-                  <span class="ps-num">08</span>
+                  <span class="ps-num">07</span>
                   <div>
                     <div class="ps-name">Preprocessing Pipeline</div>
                     <div class="ps-desc">Imputation, encoding, scaling — fit on train only</div>
@@ -350,21 +343,21 @@
               </div>
               <ul class="phase-steps">
                 <li class="phase-step">
-                  <span class="ps-num">09</span>
+                  <span class="ps-num">08</span>
                   <div>
                     <div class="ps-name">Baseline Model</div>
                     <div class="ps-desc">Simplest model first. Establish a benchmark.</div>
                   </div>
                 </li>
                 <li class="phase-step">
-                  <span class="ps-num">10</span>
+                  <span class="ps-num">09</span>
                   <div>
                     <div class="ps-name">Model Selection</div>
                     <div class="ps-desc">Try 2–3 models. Compare with cross-validation.</div>
                   </div>
                 </li>
                 <li class="phase-step">
-                  <span class="ps-num">11</span>
+                  <span class="ps-num">10</span>
                   <div>
                     <div class="ps-name">Evaluation</div>
                     <div class="ps-desc">Right metrics for the right problem.</div>
@@ -379,14 +372,14 @@
               </div>
               <ul class="phase-steps">
                 <li class="phase-step">
-                  <span class="ps-num">12</span>
+                  <span class="ps-num">11</span>
                   <div>
                     <div class="ps-name">Hyperparameter Tuning</div>
                     <div class="ps-desc">Grid or random search. Understand what changes.</div>
                   </div>
                 </li>
                 <li class="phase-step">
-                  <span class="ps-num">13</span>
+                  <span class="ps-num">12</span>
                   <div>
                     <div class="ps-name">Final Insights</div>
                     <div class="ps-desc">Feature importance, business interpretation.</div>
@@ -425,7 +418,7 @@
               <div class="cmd-badge">/project:start</div>
               <div>
                 <div class="cmd-title">Begin a Session</div>
-                <p class="cmd-desc">The entry point for every session. Reads PROBLEM.md, scans for data, shows your 13-step roadmap, and resumes right where you left off if PROGRESS.md exists.</p>
+                <p class="cmd-desc">The entry point for every session. Reads PROBLEM.md, scans for data, shows your 12-step roadmap, and resumes right where you left off if PROGRESS.md exists.</p>
                 <div class="cmd-tags">
                   <span class="cmd-tag">session start</span>
                   <span class="cmd-tag">resume</span>
@@ -474,9 +467,9 @@
               <div class="cmd-badge">/project:stuck</div>
               <div>
                 <div class="cmd-title">I'm Stuck</div>
-                <p class="cmd-desc">Activates the 4-level hint ladder. Nudge → analogy → skeleton → reveal. Never jumps straight to the answer. Ends by asking you to explain what you just learned.</p>
+                <p class="cmd-desc">Climbs the Socratic Ladder. Ask → nudge → skeleton → reveal. Never jumps straight to the answer. Ends by asking you to explain what you just learned.</p>
                 <div class="cmd-tags">
-                  <span class="cmd-tag">hint ladder</span>
+                  <span class="cmd-tag">socratic ladder</span>
                   <span class="cmd-tag">nudge</span>
                   <span class="cmd-tag">skeleton</span>
                   <span class="cmd-tag">reveal</span>

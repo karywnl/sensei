@@ -110,39 +110,38 @@ PHASE 1 — UNDERSTAND
   ✅ Step 2: Problem Identification        — Done
 
 PHASE 2 — EXPLORE
-  ⬜ Step 3: Initial Inspection            — Shape, dtypes, column meanings
-  ⬜ Step 4: Data Audit                    — Nulls, duplicates, quality issues
-  ⬜ Step 5: EDA                           — Distributions, relationships, target analysis
+  ⬜ Step 3: Data Profiling                — Structure (shape, dtypes, columns) + quality (nulls, duplicates, issues)
+  ⬜ Step 4: EDA                           — Distributions, relationships, target analysis
 
 PHASE 3 — PREPARE
-  ⬜ Step 6: Train-Test Split              — Before any transformation
-  ⬜ Step 7: Feature Engineering           — Domain-relevant signals, new features
-  ⬜ Step 8: Preprocessing Pipeline        — Imputation, encoding, scaling
+  ⬜ Step 5: Train-Test Split              — Before any transformation
+  ⬜ Step 6: Feature Engineering           — Domain-relevant signals, new features
+  ⬜ Step 7: Preprocessing Pipeline        — Imputation, encoding, scaling
 
 PHASE 4 — MODEL
-  ⬜ Step 9:  Baseline Model               — Benchmark with simplest model
-  ⬜ Step 10: Model Selection              — Compare 2-3 models
-  ⬜ Step 11: Evaluation                   — [metric] as primary metric
+  ⬜ Step 8:  Baseline Model               — Benchmark with simplest model
+  ⬜ Step 9:  Model Selection              — Compare 2-3 models
+  ⬜ Step 10: Evaluation                   — [metric] as primary metric
 
 PHASE 5 — IMPROVE
-  ⬜ Step 12: Hyperparameter Tuning        — Optimize the best model
-  ⬜ Step 13: Final Insights               — Feature importance, business interpretation
+  ⬜ Step 11: Hyperparameter Tuning        — Optimize the best model
+  ⬜ Step 12: Final Insights               — Feature importance, business interpretation
 
-Total: 13 steps. One at a time. No rushing.
+Total: 12 steps. One at a time. No rushing.
 ```
 
 Flag steps that will be critical for THIS specific dataset:
-- Heavy nulls → flag Step 4 and Step 8
-- Imbalanced target → flag Step 11
-- Few features → flag Step 7
-- Competition with test set → mention that Step 13 includes generating the submission file
+- Heavy nulls → flag Step 3 and Step 7
+- Imbalanced target → flag Step 10
+- Few features → flag Step 6
+- Competition with test set → mention that Step 12 includes generating the submission file
 
 ---
 
 ## Step 6: Create Initial PROGRESS.md
 
 Create `PROGRESS.md` with:
-- Current Step: Step 3 — Initial Inspection
+- Current Step: Step 3 — Data Profiling
 - Steps Completed: 1, 2
 - Dataset, problem type, target, eval metric, domain
 - Key Decisions: (none yet)
@@ -153,6 +152,6 @@ Create `PROGRESS.md` with:
 ## Step 7: Get Buy-In
 
 End with:
-*"That's the full map. Ready to start Step 3: Initial Inspection?"*
+*"That's the full map. Ready to start Step 3: Data Profiling? No rush — these 12 steps usually span several sessions, and `/project:next` saves your place automatically. If your notebook or libraries (pandas, scikit-learn, etc.) aren't set up yet, just say so and I'll walk you through it first."*
 
 Wait for the student before proceeding.

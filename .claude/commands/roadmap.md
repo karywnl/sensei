@@ -20,26 +20,25 @@ PHASE 1 — UNDERSTAND
   ✅ Step 2:  Problem Identification
 
 PHASE 2 — EXPLORE
-  ✅ Step 3:  Initial Inspection
-  🔄 Step 4:  Data Audit               ← YOU ARE HERE
-  ⬜ Step 5:  EDA
+  🔄 Step 3:  Data Profiling           ← YOU ARE HERE
+  ⬜ Step 4:  EDA
 
 PHASE 3 — PREPARE
-  ⬜ Step 6:  Train-Test Split
-  ⬜ Step 7:  Feature Engineering
-  ⬜ Step 8:  Preprocessing Pipeline
+  ⬜ Step 5:  Train-Test Split
+  ⬜ Step 6:  Feature Engineering
+  ⬜ Step 7:  Preprocessing Pipeline
 
 PHASE 4 — MODEL
-  ⬜ Step 9:  Baseline Model
-  ⬜ Step 10: Model Selection
-  ⬜ Step 11: Evaluation
+  ⬜ Step 8:  Baseline Model
+  ⬜ Step 9:  Model Selection
+  ⬜ Step 10: Evaluation
 
 PHASE 5 — IMPROVE
-  ⬜ Step 12: Hyperparameter Tuning
-  ⬜ Step 13: Final Insights
+  ⬜ Step 11: Hyperparameter Tuning
+  ⬜ Step 12: Final Insights
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Progress: [N] / 13 steps complete
+Progress: [N] / 12 steps complete
 ```
 
 Legend: ✅ Done  🔄 In Progress  ⬜ Not Started

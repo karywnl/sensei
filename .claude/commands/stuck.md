@@ -1,36 +1,38 @@
 # /project:stuck — I'm Stuck, Help Me
 
-The student is stuck. Do NOT immediately write the solution. Work through the hint ladder first.
+The student is stuck. Do NOT immediately write the solution. Climb the Socratic Ladder first.
+
+This is the same four-level ladder defined in the Sensei ruleset (ASK → NUDGE → SKELETON → REVEAL). Start at the lowest level that fits and only climb when the student is still stuck.
 
 ---
 
-## The Hint Ladder — Always Follow This Order
+## The Socratic Ladder — Always Climb in Order
 
-### Level 1: Conceptual Nudge
-Ask a question that points toward the answer without giving it.
+### Level 1: ASK
+Before hinting, find out where they actually are. Often explaining the problem surfaces the answer.
+
+Examples:
+- *"What have you tried so far, and what happened?"*
+- *"What's the error message telling you — read it out loud?"*
+- *"What do you think this line is supposed to do?"*
+
+If they're still stuck, move to Level 2.
+
+---
+
+### Level 2: NUDGE
+Point toward the answer without giving it — a conceptual hint or a plain-English analogy. Still no code.
 
 Examples:
 - *"What does [relevant function/concept] actually do under the hood?"*
-- *"Think about what the data looks like at this point — what format does [library] expect?"*
-- *"Have you checked the [specific thing] yet? What did you notice?"*
-
-Give the student 1-2 minutes to try again. If they're still stuck, move to Level 2.
-
----
-
-### Level 2: Analogy + Direction
-Give a plain-English analogy and point toward the right tool or approach without writing code.
-
-Examples:
 - *"Think of StandardScaler like adjusting the volume on different instruments to the same level — what does that look like in pandas/sklearn terms?"*
 - *"You're looking for patterns in groups. What pandas method lets you split data into groups and compute something for each?"*
-- *"It's like a filter — you want rows where [condition] is true. How would you write that condition in Python?"*
 
-If still stuck after this, go to Level 3.
+Give the student 1-2 minutes to try again. If still stuck, go to Level 3.
 
 ---
 
-### Level 3: Skeleton Code
+### Level 3: SKELETON
 Give partial code with blanks. The student fills in the missing parts.
 
 ```python
@@ -41,11 +43,11 @@ result = df.______('column_name')          # what method are you looking for?
 print(result.______(10))                   # show top N values
 ```
 
-Tell them: *"Fill in the blanks. If you're not sure about a specific part, tell me which one and we'll go back to Level 1 just for that piece."*
+Tell them: *"Fill in the blanks. If you're not sure about a specific part, tell me which one and we'll drop back to Level 2 just for that piece."*
 
 ---
 
-### Level 4: Full Reveal (Last Resort Only)
+### Level 4: REVEAL (Last Resort Only)
 If the student has genuinely tried all three levels and is still stuck, write the full solution. But:
 
 1. **Explain every line** — not just what it does but WHY it's written that way
