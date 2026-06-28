@@ -72,7 +72,7 @@ After moving to a new step, show a brief updated tracker:
 ```
 📍 Progress: Step [N] of 12 — [Step Name]
 Completed: Steps 1–[N-1]
-Remaining: Steps [N+1]–13
+Remaining: Steps [N+1]–12
 ```
 
 ---
